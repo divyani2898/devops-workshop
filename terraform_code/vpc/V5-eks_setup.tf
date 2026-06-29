@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "demo-server" {
-    ami = "ami-053b0d53c279acc90"
+    ami = "ami-01a00762f46d584a1"
     instance_type = "t3.micro"
     key_name = "proj1"
     //security_groups = [ "demo-sg" ]
