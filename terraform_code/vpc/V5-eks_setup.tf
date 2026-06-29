@@ -1,11 +1,11 @@
 provider "aws" {
-  region = "us-east-1"
+  region = "ap-south-1"
 }
 
 resource "aws_instance" "demo-server" {
     ami = "ami-053b0d53c279acc90"
-    instance_type = "t2.micro"
-    key_name = "dpp"
+    instance_type = "t3.micro"
+    key_name = "proj1"
     //security_groups = [ "demo-sg" ]
     vpc_security_group_ids = [aws_security_group.demo-sg.id]
     subnet_id = aws_subnet.dpp-public-subnet-01.id 
@@ -62,7 +62,7 @@ resource "aws_subnet" "dpp-public-subnet-01" {
   vpc_id = aws_vpc.dpp-vpc.id
   cidr_block = "10.1.1.0/24"
   map_public_ip_on_launch = "true"
-  availability_zone = "us-east-1a"
+  availability_zone = "ap-south-1a"
   tags = {
     Name = "dpp-public-subent-01"
   }
@@ -72,7 +72,7 @@ resource "aws_subnet" "dpp-public-subnet-02" {
   vpc_id = aws_vpc.dpp-vpc.id
   cidr_block = "10.1.2.0/24"
   map_public_ip_on_launch = "true"
-  availability_zone = "us-east-1b"
+  availability_zone = "ap-south-1b"
   tags = {
     Name = "dpp-public-subent-02"
   }
